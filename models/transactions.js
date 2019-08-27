@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Transaction.init({
     UserId: DataTypes.INTEGER,
-    ItemId: DataTypes.INTEGER
+    ItemId: DataTypes.INTEGER,
+    TotalItems : DataTypes.INTEGER,
+    TotalPayment : DataTypes.INTEGER
   }, {
       sequelize
     })
