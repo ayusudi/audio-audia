@@ -1,0 +1,26 @@
+{
+  "name": "audio-audia",
+  "version": "1.0.0",
+  "description": "pair project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayusudi/audio-audia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayusudi/audio-audia/issues"
+  },
+  "homepage": "https://github.com/ayusudi/audio-audia#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "pg": "^7.12.1",
+    "sequelize": "^5.16.0"
+  }
+}

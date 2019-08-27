@@ -1,0 +1,123 @@
+[
+  {
+    "name" : "JBL T450BT",
+    "price": 800000,
+    "stock": 20,
+    "picture":"http://static.bmdstatic.com/pk/product/medium/5a0e4e7a4f240.jpg,JBL",
+    "bluetooth": true,
+    "description" :"T450BT ini dapat menghasilkan bass yang begitu dalam dan kuat, sehingga menikmati musik favorit pun menjadi lebih seru dan menyenangkan. Headphone besutan JBL ini mampu bertahan hingga 11 jam lamanya untuk pemutaran audio yang berkelanjutan."
+  },
+  {
+    "name" : "Harman Kardon Brown",
+    "price": 1200000,
+    "stock": 20,
+    "picture":"https://5.imimg.com/data5/ME/FN/MY-36805083/hk-soho-wireless-500x500.jpg",
+    "bluetooth": true,
+    "description" :"Harman Kardon Soho memiliki desain yang stylish dan fungsi berpikiran maju untuk suara indah yang bepergian dengan Anda. Harman Kardon SOHO membuka telinga Anda untuk suara yang luar biasa dari driver 30mm khusus yang dipilih"
+  },
+  {
+    "name" : "Harman Kardon Black",
+    "price": 1200000,
+    "stock": 20,
+    "picture":"https://static.bhphoto.com/images/images1000x1000/1424180750_1119971.jpg",
+    "bluetooth": true,
+    "description" :"Harman Kardon Soho memiliki desain yang stylish dan fungsi berpikiran maju untuk suara indah yang bepergian dengan Anda. Harman Kardon SOHO membuka telinga Anda untuk suara yang luar biasa dari driver 30mm khusus yang dipilih"
+  },
+  {
+    "name" : "Logitech G231 Prodigy",
+    "price": 700000,
+    "stock": 20,
+    "picture":"https://s.eticaretbox.com/1321/pictures/FTOJYCEUCQ142018185542_logitech-g231-mikrofonlu-oyuncu-kulakligi-981-0006.jpg",
+    "bluetooth": false,
+    "description" :" Logitech G231 Prodigy mampu menghasilkan suara stereo berkualitas super untuk membawa Anda masuk lebih jauh ke dalam game yang sedang dimainkan. G231 dapat Anda gunakan untuk memainkan game dari Xbox OneTM*, Playstation 4TM, dan juga PC."
+  },
+  {
+    "name" : "Beats FENDI",
+    "price": 15000000,
+    "stock": 4,
+    "picture":"https://www.kkmall.ru/file/2018/12/BEATS-X-FENDI-PRO-Special-Edition-Headphone-In-Yellow.jpg",
+    "bluetooth": true,
+    "description" :"The Beats x Fendi Pro Headphone features clear highs and deep lows for premium sound quality.Rotating earcups to hear the sound around you. No cheap plastic, no frayed cords. Clear highs and deep lows for premium sound quality."
+  },
+  {
+    "name" : "Beats RED",
+    "price": 3200000,
+    "stock": 8,
+    "picture":"https://i5.walmartimages.ca/images/Large/587/357/6000197587357.jpg  ",
+    "bluetooth": true,
+    "description" :"Beats Studio3 Wireless Noise Canceling Over-Ear Headphones. Premium listening experience. Up to 22 hours of battery life enables full-featured all-day wireless playback. Class 1 wireless Bluetooth connectivity & battery efficiency "
+  },
+  {
+    "name" : "Sudio NIVÅ WHITE",
+    "price": 1200000,
+    "stock": 15,
+    "picture":"https://d2o7dtsnwzl7g9.cloudfront.net/tekzone/media/image/2f/63/59/SUDIO-TOLV-WHITE-1_600x600.png",
+    "bluetooth": true,
+    "description" :"Nivå adalah koleksi earphone wireless tanpa kabel yang pertama dari Sudio Sweden yang dilengkapi dengan kotak charging. Dapat di-quick charge atau charging cepat dalam 10 menit untuk daya baterai hingga 1 jam."
+  },
+  {
+    "name" : "Sudio VASA BLÅ",
+    "price": 1050000,
+    "stock": 10,
+    "picture":"https://shop.smartone.com/accessories/large/ASEOT219_0.jpg",
+    "bluetooth": false,
+    "description" :"Koleksi earphone premium dari sudio yang diinspirasi oleh lifestyle dari Sudio Sweden. Tahan keringat praktis dan nyaman pada telinga, dengan kabel anti-kusut, memiliki berat hanya 14 gram. Cocok sekali untuk sehari-hari"
+  },  
+  {
+    "name" : "Skullcandy Rainbow",
+    "price": 350000,
+    "stock": 10,
+    "picture":"https://smhttp-ssl-30815.nexcesscdn.net/media/catalog/product/cache/1/image/950x950/170ec19af00183b5e0368529fc2daa2f/s/k/skullcandy_earphone_method_s2cdjy-523_11_1000_hero_gray.jpg",
+    "bluetooth": false,
+    "description" :"Rainbow eaphone ini didesain khusus agar pas dan nyaman saat dengan sticky gel melindungi headphone dari keringat. Flat Cabel, kabel yang flat membuat kabel lebih tahan lama dan tidak mudah terlilit. Dilengkapi dengan mic suara/mikrofon"
+  },
+  {
+    "name" : "Skull Head",
+    "price": 150000,
+    "stock": 25,
+    "picture":"https://ae01.alicdn.com/kf/HTB1hZGyLpXXXXc_XXXXq6xXFXXXu/New-3-5mm-Colorful-Skull-Earpods-Earplugs-Earphone-for-Iphone-4-4S-5-5S-for-ipad.jpg",
+    "bluetooth": false,
+    "description" :"Limited Skull Earbuds from Halloween 2018. 100% brand new & high quality!. Skull design, fashionable and trendy. Lightweight and convenient to carry. Standard soft silicone tips"
+  },  
+  {
+    "name" : "Bose White Classic",
+    "price": 1500000,
+    "stock": 10,
+    "picture":"https://www.kkmall.ru/file/2018/11/Bose-Quiet-Comfort-25-Headphones-White.jpg",
+    "bluetooth": true,
+    "description" :" Wireless headphones Bose White Classic are engineered with world-class noise cancellation. And now they’re even better with direct access to Amazon Alexa and the Google Assistant for simple voice control on the go"
+  },
+  {
+    "name" : "Samsung Galaxy Buds",
+    "price": 1500000,
+    "stock": 10,
+    "picture":"https://i.ebayimg.com/images/g/uTIAAOSw18Bcc7sL/s-l300.jpg",
+    "bluetooth": true,
+    "description" :"Samsung Galaxy Buds with your phone or tablet and go. Listen and chat during the day, With sound by AKG, Galaxy Buds deliver calls, your favorite podcasts and the music you love while keeping you aware of your surroundings when working"
+  },
+  {
+    "name" : "Bose Purple SIE2",
+    "price": 1800000,
+    "stock": 10,
+    "picture":"https://www.kkmall.ru/file/2018/11/Bose-SIE2i-Sport-Earphones-Purple.jpg",
+    "bluetooth": false,
+    "description" :"The Good The Bose SIE2 earphones fit securely and comfortably, are sweat-resistant, and their 'open' design has its appeal. They also offer pleasantly full bass and include a Reebok 'fitness' armband for wearing your portable music device"
+  },
+  {
+    "name" : "Marshall III",
+    "price": 3500000,
+    "stock": 10,
+    "picture":"https://www.kkmall.ru/file/2018/11/Marshall-Major-III-Bluetooth-Headphones-Black.jpg",
+    "bluetooth": true,
+    "description" :"The Marshall Major III are on-ear wireless Bluetooth headphones made in the image of Marshall's guitar amplifiers. They're fairly comfortable, not hugely expensive, sound good, and last up to 30 hours off a charge"
+  },
+  {
+    "name" : "Sennheiser IE 8i",
+    "price": 800000,
+    "stock": 20,
+    "picture":"https://www.kkmall.ru/file/2018/12/Sennheiser-IE-8i-Earphones.jpg",
+    "bluetooth": false,
+    "description" :"Sennheiser’s low-end earphones and headphones grab plenty of attention. The CX300 IEMs are some of the most popular budget headphones around and the PX100 are headphone demigods."
+  }
+]
+
