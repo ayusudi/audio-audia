@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   class Item extends sequelize.Sequelize.Model {
     static associate(models) {
-      Item.hasMany(models.UserItem)
+      Item.hasMany(models.Transaction)
     }
   }
   Item.init({

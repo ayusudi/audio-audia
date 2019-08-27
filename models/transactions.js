@@ -1,17 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  class UserItem extends sequelize.Sequelize.Model {
+  class Transaction extends sequelize.Sequelize.Model {
     static associate(models) {
-      UserItem.belongsTo(models.User)
-      UserItem.belongsTo(models.Item)
+      Transaction.belongsTo(models.User)
+      Transaction.belongsTo(models.Item)
     }
   }
-  UserItem.init({
+  Transaction.init({
     UserId: DataTypes.INTEGER,
     ItemId: DataTypes.INTEGER
   }, {
       sequelize
     })
 
-  return UserItem;
+  return Transaction;
 };
