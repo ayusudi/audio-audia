@@ -23,8 +23,8 @@ class UserController {
                     // res.send(req.body)
             })
             .catch(err => {
-                console.log(err, '<<<<<<<<<<< ERRORNYA DISINI BRO')
-                res.send(err)
+                console.log(err)
+                    // res.redirect('register/?error=')
                     // res.send(req.body)
             })
     }
@@ -40,17 +40,18 @@ class UserController {
     }
 
     static update(req, res) {
-        User.update(req.body, {
+        User.findByPk({
                 where: {
                     id: req.params.id
                 }
             })
             .then(data => {
-                res.send(data)
+                console.log(data)
             })
             .catch(err => {
-                res.send(err)
+                console.log(err)
             })
+
     }
 
 
@@ -61,45 +62,51 @@ class UserController {
                 }
             })
             .then(data => {
-                // res.redirect('/)
-                res.send(data)
+
+                console.log('berhasil')
+                res.redirect('/users/admin/edit-customer')
             })
             .catch(err => {
+                console.log('gagal')
                 res.send(err)
             })
     }
 
     static findAllCustomer(req, res) {
-        console.log('masuk bro')
+        // console.log('masuk bro')
         User.findAll()
             .then(data => {
-                res.send(data)
-                    // res.render('/edit-customer', {
-                    //     data
-                    // })
+                // res.send(data)
+                res.render('allCustomer.ejs', {
+                    data
+                })
             })
             .catch(err => {
                 res.send(err)
             })
     }
 
-    static findUserTRX (req,res){
+    static findUserTRX(req, res) {
         User.findByPk(req.params.idUser, {
-            include : [{
-                model : Model.Transaction,
-                include : [{
-                    model : Model.Item
+                include: [{
+                    model: Model.Transaction,
+                    include: [{
+                        model: Model.Item
+                    }]
                 }]
-            }]
-        })
-        .then(data =>{
-            let invoice = data.getInvoice()
-            let invoiceFormat = {
-                perItem : invoice,
-                totalPaymentSum : sumInvoice(invoice)
-            }
-            res.render('invoice',{UserInvoice :invoiceFormat ,customer : data.dataValues, rupiah : convertMoney})
-        })
+            })
+            .then(data => {
+                let invoice = data.getInvoice()
+                let invoiceFormat = {
+                    perItem: invoice,
+                    totalPaymentSum: sumInvoice(invoice)
+                }
+                res.render('invoice', {
+                    UserInvoice: invoiceFormat,
+                    customer: data.dataValues,
+                    rupiah: convertMoney
+                })
+            })
     }
 
 
