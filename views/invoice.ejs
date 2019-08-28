@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Invoice</title>
+</head>
+<body style="background-color: teal">
+  <br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <strong>Invoice </strong>
+            </div>
+            <div style="position: absolute; left : 860px; margin-top: 70px ">
+                <img src="http://icons.iconarchive.com/icons/paomedia/small-n-flat/256/headphone-icon.png" alt="" width="150px" >
+                <br> <h4 style="text-align: center">AUDIO AUDIA</h4>
+                    
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-sm-6">
+                        <h6 class="mb-3">To:</h6>
+                        <div>
+                            <strong><%=customer.name%></strong>
+                        </div>
+                        <p>
+                            <%=customer.address%>
+                        </p>
+                        <div><b>Email: </b>
+                            <%=customer.email%>
+                        </div>
+                        <br>
+                        <div> <b>Phone: </b>
+                            <%=customer.phone%>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br>
+                <div class="table-responsive-sm">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="center">#</th>
+                                <th>Item</th>
+                                <th class="right">Unit Cost</th>
+                                <th class="center">Jumlah</th>
+                                <th class="right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                
+
+    <%let i = 1%>
+    <% for (let k in UserInvoice.perItem){%>
+    <tr>
+                <td class="center">
+                    <%= i++ %>
+                    </td>
+                    <td class="left strong">
+                        <%=  k %>
+                    </td>
+                    <td class="right">
+                        <%= rupiah(UserInvoice.perItem[k].pricePeritem) %>
+                    </td>
+                    <td class="center">
+                        <%= UserInvoice.perItem[k].quantity %>
+                    </td>
+                    <td class="right">
+                        <%= rupiah(UserInvoice.perItem[k].TotalPrice) %>
+                    </td>
+        
+            <%}%>
+                                      </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                   
+
+
+                    <div class="col-lg-4 col-sm-5 ml-auto">
+                        <table class="table table-clear">
+                            <tbody>
+                                <tr>
+                                    <br>
+                                    <td class="left">
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="right">
+                                        <strong><%= rupiah(UserInvoice.totalPaymentSum) %></strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-4 col-sm-5 ml-auto" style="left: 120px">
+                    <a class="btn btn-primary btn-lg" href="/users/<%=customer.id%>/dashboard" role='button'>Checkout</a>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

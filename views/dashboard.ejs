@@ -29,7 +29,12 @@
 </head>
 
 <body>
-  </div>
+    <div class="col-lg-4 col-sm-5 ml-auto" style="left: 120px">
+        <a class="btn btn-primary btn-lg" href="/users/<%=user%>/dashboard/filterItem/bluetooth/true" role='button'>Include Bluetooth</a>
+    </div>
+    <div class="col-lg-4 col-sm-5 ml-auto" style="left: 120px">
+        <a class="btn btn-primary btn-lg" href="/users/<%=user%>/dashboard/filterItem/bluetooth/false" role='button'>No Bluetooth</a>
+    </div>
   <div class="container">
     <% items.forEach(data =>{%>
     <!-- <div class="row"> -->
@@ -38,7 +43,7 @@
         <div class="panel-heading" style="background-color: rgb(6, 109, 128)"><%= data.name %></div>
         <div class="panel-body"><img src="<%= data.picture %>" class="img-responsive" style="width:100%" alt="Image">
         </div>
-        <div class="panel-footer"><%= data.price %></div> <a href="/users/items/<%= data.id %>">PAYMENT</a>
+        <div class="panel-footer"><%= rupiah(data.price) %></div> <a href="/users/<%=user%>/items/<%= data.id %>">Show More</a>
       </div>
     </div>
     <%})%>

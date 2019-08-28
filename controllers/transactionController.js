@@ -18,6 +18,7 @@ class TransactionController {
                 console.log(err);
             })
     }
+
 }
 
 module.exports = TransactionController
