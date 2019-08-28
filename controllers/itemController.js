@@ -32,6 +32,12 @@ class ItemController {
         res.send(err)
       })
   }
+  static findOne(req, res){
+    Item.findByPk(req.params.idItem)
+    .then(item =>{
+      res.render('show-item', {item :  item})
+    })
+  }
 }
 
 module.exports = ItemController

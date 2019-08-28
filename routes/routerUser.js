@@ -9,4 +9,6 @@ const ItemController = require('../controllers/itemController')
 router.get('/dashboard', ItemController.findAll)
 router.get('/dashboard/filterItem/:field/:value', ItemController.findByFilter)
 router.get('/dashboard/findName/:name', ItemController.filterByName)
+
+router.get('/items/:idItem', ItemController.findOne)
 module.exports = router
