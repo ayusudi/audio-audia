@@ -1,5 +1,6 @@
 const Model = require('../models/index')
 const Item = Model.Item
+const convertMoney = require('../helper/rupiah')
 
 class ItemController {
   static findAll(req, res) {
@@ -7,7 +8,7 @@ class ItemController {
       order: [['id', 'ASC']]
     })
       .then(items => {
-        res.render('dashboard', { items: items })
+        res.render('dashboard', { items: items ,  user : req.params.idUser, rupiah: convertMoney})
       })
       .catch(err => {
         res.send(err)
@@ -16,7 +17,7 @@ class ItemController {
   static findByFilter(req, res) {
     Item.findByFilter(req.params.field, req.params.value)
       .then(items => {
-        res.render('dashboard', { items: items })
+        res.render('dashboard', { items: items , user : req.params.idUser, rupiah : convertMoney})
       })
       .catch(err => {
         res.send(err)
@@ -26,7 +27,7 @@ class ItemController {
   static filterByName(req, res) {
     Item.filterByName(req.params.name)
       .then(items => {
-        res.render('dashboard', { items: items })
+        res.render('dashboard', { items: items ,  user : req.params.idUser, rupiah: convertMoney})
       })
       .catch(err => {
         res.send(err)

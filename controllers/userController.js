@@ -1,5 +1,7 @@
 const Model = require('../models/index')
 const User = Model.User
+const sumInvoice = require('../helper/sumInvoice')
+const convertMoney = require('../helper/rupiah')
 
 class UserController {
 
@@ -79,6 +81,25 @@ class UserController {
             .catch(err => {
                 res.send(err)
             })
+    }
+
+    static findUserTRX (req,res){
+        User.findByPk(req.params.idUser, {
+            include : [{
+                model : Model.Transaction,
+                include : [{
+                    model : Model.Item
+                }]
+            }]
+        })
+        .then(data =>{
+            let invoice = data.getInvoice()
+            let invoiceFormat = {
+                perItem : invoice,
+                totalPaymentSum : sumInvoice(invoice)
+            }
+            res.render('invoice',{UserInvoice :invoiceFormat ,customer : data.dataValues, rupiah : convertMoney})
+        })
     }
 
 

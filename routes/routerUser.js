@@ -17,11 +17,13 @@ router.post('/register', UserController.Create)
 router.get('/admin/edit-customer', UserController.findAllCustomer)
 router.get('/:idUser/dashboard', ItemController.findAll)
 
-router.get('/dashboard/filterItem/:field/:value', ItemController.findByFilter)
-router.get('/dashboard/findName/:name', ItemController.filterByName)
+router.get('/:idUser/dashboard/filterItem/:field/:value', ItemController.findByFilter)
+router.get('/:idUser/dashboard/findName/:name', ItemController.filterByName)
 router.get('/:idUser/dashboard/findName/:name', ItemController.filterByName)
 router.post('/:idUser/items/:idItem', TransactionController.create)
+router.get('/:idUser/items/:idItem', ItemController.findOne)
+router.get('/:idUser/checkout', UserController.findUserTRX)
+// router.get('/items/:idItem', ItemController.findOne)
 
-router.get('/items/:idItem', ItemController.findOne)
 module.exports = router
 

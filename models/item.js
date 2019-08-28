@@ -4,6 +4,15 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             Item.hasMany(models.Transaction)
         }
+        statusBluetooth(){
+            if (this.bluetooth){
+                return '✓ Bluetooth'
+            }
+            else {
+                return '☓ Bluetooth'
+            }
+        }
+
         static findByFilter(field, value) {
             return Item.findAll({
                     where: {

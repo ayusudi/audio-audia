@@ -27,7 +27,7 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
-    <title>Hello, world!</title>
+    <title>Audio Audia</title>
 <script>
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
@@ -88,22 +88,31 @@ function imageZoom(imgID, resultID) {
 </head>
 <body>
 <center>
+    <br>
    <h1><%= item.name %></h1>
+   <br>
 </center>
 <div class="img-zoom-container" style="margin-left: 400px;">
         <div id="myresult" class="img-zoom-result" ></div>
-        <div style="margin-left: 380px; margin-top: -290px">
-                <p>' Mouse over the image for Zoom Picture🔎 '</p>
+        <div style="margin-left: 380px; margin-top: -310px">
+                <p><b>' Mouse over the image for Zoom Picture 🔎 '</b></p>
         <img id="myimage" src="<%= item.picture %>" width="300" height="240" style=padding-left:40px>
     </div>
 </div>
 <center>
+    <br>
     <div style="width: 425px; margin-top: 30px ">
         <p><%=item.description%></p>
     </div>
+    <b>
+        <%= item.statusBluetooth()%>
+    </b>
+    <br>
     <br>
     <div style="border-style:solid; width: 200px; text-align: right; padding-right: 20px ">
-            <h3><%= item.price %></h3>
+          <b>
+              <h3><%= item.price %></h3>
+          </b>
         </div>
     <form action="/users/<%=user.id%>/items/<%=item.id%>" method="POST">
     <div class="form-total" style=" margin-top: 20px; ">
