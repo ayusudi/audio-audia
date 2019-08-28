@@ -21,8 +21,8 @@ class UserController {
                     // res.send(req.body)
             })
             .catch(err => {
-                console.log(err, '<<<<<<<<<<< ERRORNYA DISINI BRO')
-                res.send(err)
+                console.log(err)
+                    // res.redirect('register/?error=')
                     // res.send(req.body)
             })
     }
@@ -38,17 +38,18 @@ class UserController {
     }
 
     static update(req, res) {
-        User.update(req.body, {
+        User.findByPk({
                 where: {
                     id: req.params.id
                 }
             })
             .then(data => {
-                res.send(data)
+                console.log(data)
             })
             .catch(err => {
-                res.send(err)
+                console.log(err)
             })
+
     }
 
 
@@ -60,21 +61,24 @@ class UserController {
             })
             .then(data => {
                 // res.redirect('/)
-                res.send(data)
+                // res.send(data)
+                console.log('berhasil')
+                res.redirect('/')
             })
             .catch(err => {
+                console.log('gagal')
                 res.send(err)
             })
     }
 
     static findAllCustomer(req, res) {
-        console.log('masuk bro')
+        // console.log('masuk bro')
         User.findAll()
             .then(data => {
-                res.send(data)
-                    // res.render('/edit-customer', {
-                    //     data
-                    // })
+                // res.send(data)
+                res.render('allCustomer.ejs', {
+                    data
+                })
             })
             .catch(err => {
                 res.send(err)

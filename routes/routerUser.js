@@ -17,11 +17,18 @@ router.post('/register', UserController.Create)
 router.get('/admin/edit-customer', UserController.findAllCustomer)
 router.get('/:idUser/dashboard', ItemController.findAll)
 
+router.get('/admin/edit-customer/delete/:id', UserController.delete)
+
+// ROUTES UNTUK EDIT CUSTOMER KE HALAMAN CUSTOMER TSB
+router.get('/admin/edit-customer/:id', UserController.update)
+
+
+
 router.get('/dashboard/filterItem/:field/:value', ItemController.findByFilter)
 router.get('/dashboard/findName/:name', ItemController.filterByName)
 router.get('/:idUser/dashboard/findName/:name', ItemController.filterByName)
 router.post('/:idUser/items/:idItem', TransactionController.create)
 
 router.get('/items/:idItem', ItemController.findOne)
-module.exports = router
 
+module.exports = router
