@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Register to Audio Audia</title>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Toko Audio Audia</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/help">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <div>
+        <form class="form" style="padding-left: 85px; padding-top: 40px; position: absolute" action="/users/register" method="post">
+            <fieldset>
+                <div id="legend">
+                    <h1>Register</h1>
+                </div>
+                <div class="control-group">
+
+
+                    <!-- req.body.name -->
+                    <label class="control-label" for="name">Name</label>
+                    <div class="controls">
+                        <input type="text" id="name" name="name" placeholder="" class="input-xlarge" style="width: 300px">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- req.body.phone -->
+                    <label class="control-label" for="phone">Phone</label>
+                    <div class="controls">
+                        <input type="text" id="phone" name="phone" placeholder="" class="input-xlarge" style="width: 300px">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- req.body.address -->
+                    <label class="address" for="address">Adress</label>
+                    <div class="controls">
+                        <input type="text" id="address" name="address" class="input-xlarge" style="width:300px">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- req.body.email -->
+                    <label class="control-label" for="email">Email</label>
+                    <div class="controls">
+                        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" style=" width: 300px">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- req.body.username -->
+                    <label class="username" for="username">Username</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" class="input-xlarge" style="width:300px">
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                    <!-- req.body.password-->
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" style="width: 300px">
+                    </div>
+                </div>
+
+
+                <!-- <div class="control-group"> -->
+                <!-- req.body.role -->
+                <!-- <label class="control-label" for="role">Role</label>
+                    <div class="controls">
+                        <input list="role" name="role" style="width:300px">
+                        <datalist id="role">
+                            <option value="Customer">
+                            <option value="Admin">
+                        </datalist>
+                    </div>
+                </div> -->
+
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls" style="padding-top: 20px ">
+                        <button class="btn btn-success">Register</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <img src='https://thumbs.dreamstime.com/b/male-pharmacist-medicine-background-pharmacy-opposite-shelves-medicines-health-care-vector-illustration-65276669.jpg' style="width: 680px; position: static; margin-left: 700px">
+    <br>
+    <div class="footer">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
