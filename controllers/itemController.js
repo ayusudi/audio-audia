@@ -36,9 +36,7 @@ class ItemController {
   static findOne(req, res){
     Item.findByPk(req.params.idItem)
     .then(item =>{
-      res.render('show-item', {item :  item, user : {
-        id : req.params.idUser
-      }})
+      res.render('show-item', {item :  item, user : {id : req.params.idUser}, rupiah : convertMoney})
     })
   }
 }
