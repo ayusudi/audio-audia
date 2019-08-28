@@ -13,17 +13,21 @@
   position: absolute;
   border: 1px solid #d4d4d4;
   /*set the size of the lens:*/
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 300px;
-  height: 300px;
+  width: 345px;
+  height: 345px;
 }
 </style>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
+    <title>Hello, world!</title>
 <script>
 function imageZoom(imgID, resultID) {
   var img, lens, result, cx, cy;
@@ -83,24 +87,43 @@ function imageZoom(imgID, resultID) {
 </script>
 </head>
 <body>
-
-<h1><%= item.name %></h1>
-
-<p>Mouse over the image:</p>
-
-<div class="img-zoom-container">
-    <div id="myresult" class="img-zoom-result" ></div>
-    <img id="myimage" src="<%= item.picture %>" width="300" height="240">
+<center>
+   <h1><%= item.name %></h1>
+</center>
+<div class="img-zoom-container" style="margin-left: 400px;">
+        <div id="myresult" class="img-zoom-result" ></div>
+        <div style="margin-left: 380px; margin-top: -290px">
+                <p>' Mouse over the image for Zoom Picture🔎 '</p>
+        <img id="myimage" src="<%= item.picture %>" width="300" height="240" style=padding-left:40px>
+    </div>
 </div>
-
-<p>The image must be placed inside a container with relative positioning.</p>
-<p>The result can be put anywhere on the page, but must have the class name "img-zoom-result".</p>
-<p>Make sure both the image and the result have IDs. These IDs are used when a javaScript initiates the zoom effect.</p>
-
+<center>
+    <div style="width: 425px; margin-top: 30px ">
+        <p><%=item.description%></p>
+    </div>
+    <br>
+    <div style="border-style:solid; width: 200px; text-align: right; padding-right: 20px ">
+            <h3><%= item.price %></h3>
+        </div>
+    <form action="/users/<%=user.id%>/items/<%=item.id%>" method="POST">
+    <div class="form-total" style=" margin-top: 20px; ">
+        <div>
+            <input type="number" min="1" class="form-control" id="exampleInputEmail" name="TotalItems" style="width : 60px; height: 60px;">
+        </div>
+            <input type="hidden" name = "ItemId" value="<%=item.id%>">
+        </div>
+        <div class="controls" style="padding-top: 20px ">
+            <button class="btn btn-success">Buy</button>
+        </div>
+    </form>
+</center>
 <script>
 // Initiate zoom effect:
 imageZoom("myimage", "myresult");
 </script>
 
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
 </body>
 </html>
