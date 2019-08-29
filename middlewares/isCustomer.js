@@ -1,9 +1,9 @@
 module.exports = (req, res, next) => {
-    console.log(req.session,'<<<<<<');
-    console.log(req.params, 'params<<<<<<<');
-    if(req.session.currentUser){
+    // console.log(req.session,'<<<<<<');
+    // console.log(req.params, 'params<<<<<<<');
+    if (req.session.currentUser) {
         if (req.session.currentUser.role === "customer") {
-            if(req.params.idUser == req.session.currentUser.id){
+            if (req.params.idUser == req.session.currentUser.id) {
                 next()
             }
             else {

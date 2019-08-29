@@ -1,7 +1,8 @@
 const Model = require('../models/index')
 const Item = Model.Item
 const convertMoney = require('../helpers/rupiah')
-const Transaction = require('../controllers/transactionController').Transaction
+const Transaction = require('../models/index').Transaction
+const loopMVP = require('../helpers/loopingItem')
 
 class ItemController {
     static findAll(req, res) {
@@ -65,7 +66,7 @@ class ItemController {
     }
 
     static getTotalSales(req, res) {
-        console.log('+++++++++++++++++++++++++++++++++')
+        // console.log('+++++++++++++++++++++++++++++++++')
         Transaction.findAll()
             .than(data => {
                 res.send(data)
@@ -73,24 +74,22 @@ class ItemController {
             .catch(err => {
                 res.send(err)
             })
+          }
 
+    static getAll(req, res){
+      Item.findAll({
+        include : [{
+          model : Model.Transaction
+        }], 
 
-        // Item.findAll({
-        //   include : [{
-        //     model : Transaction
-        //   }]
-        // })
-
-        // Item.findAll({
-        //         include: [Transaction]
-        //     })
-        //     .then(data => {
-        //         console.log(data, '<<<');
-        //         res.send(data)
-        //     })
-        //     .catch(err => {
-        //         res.send(err)
-        //     })
+          order : [['id', 'ASC']]
+        
+      })
+      .then(data =>{
+          console.log(loopMVP(data))
+        res.render('bestSeller', {mvp : loopMVP(data)})
+        // res.send({mvp : loopMVP(data)})
+      })
     }
 
 }
