@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         min: {
           args: 1,
-          msg: 'due your input to stock is less than 1'
+          msg: 'Due to your input to stock is less than 1'
         }
       }
     }

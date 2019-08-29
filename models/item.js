@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
                 return '☓ Bluetooth'
             }
         }
-
         static findByFilter(field, value) {
             return Item.findAll({
                     where: {

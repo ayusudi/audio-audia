@@ -4,33 +4,33 @@ const router = express.Router()
 const ItemController = require('../controllers/itemController')
 const UserController = require('../controllers/userController')
 const TransactionController = require('../controllers/transactionController')
-
+const isAdmin = require('../middlewares/isAdmin')
+const isCustomer = require('../middlewares/isCustomer')
+const isNotLogin = require('../middlewares/isNotLogin')
 // router.get('/', (req, res) => {
 //   res.send("Hello")
 // })
 // router.get('/', UserController.findAll)
-router.get('/register', (req, res) => {
+router.get('/register', isNotLogin ,(req, res) => {
     res.render('register.ejs')
 })
-router.post('/register', UserController.Create)
+router.post('/register', isNotLogin, UserController.Create)
 
-router.get('/admin/edit-customer', UserController.findAllCustomer)
-router.get('/:idUser/dashboard', ItemController.findAll)
-
-
+router.get('/admin/edit-customer', isAdmin, UserController.findAllCustomer)
 // BUAT DELETE
-router.get('/admin/edit-customer/delete/:id', UserController.delete)
+router.get('/admin/edit-customer/delete/:id', isAdmin, UserController.delete)
 
 
 
 
 
-router.get('/:idUser/dashboard/filterItem/:field/:value', ItemController.findByFilter)
-router.get('/:idUser/dashboard/findName/:name', ItemController.filterByName)
-router.get('/:idUser/dashboard/findName/:name', ItemController.filterByName)
-router.post('/:idUser/items/:idItem', TransactionController.create)
-router.get('/:idUser/items/:idItem', ItemController.findOne)
-router.get('/:idUser/checkout', UserController.findUserTRX)
+router.get('/:idUser/dashboard', isCustomer, ItemController.findAll)
+router.get('/:idUser/dashboard/filterItem/:field/:value', isCustomer,ItemController.findByFilter)
+router.get('/:idUser/dashboard/findName/:name', isCustomer,ItemController.filterByName)
+router.get('/:idUser/dashboard/findName/:name', isCustomer,ItemController.filterByName)
+router.post('/:idUser/items/:idItem', isCustomer,TransactionController.create)
+router.get('/:idUser/items/:idItem', isCustomer,ItemController.findOne)
+router.get('/:idUser/checkout', isCustomer,UserController.findUserTRX)
     // router.get('/items/:idItem', ItemController.findOne)
 
 // router.get('/items/:idItem', ItemController.findOne)
