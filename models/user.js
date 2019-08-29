@@ -7,11 +7,10 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             User.hasMany(models.Transaction)
         }
-
         getInvoice() {
             if (this.Transactions) {
                 let invoice = {}
-                let tes = this.Transactions.length
+                // let tes = this.Transactions.length
                 for (let i = 0; i < this.Transactions.length; i++) {
                     invoice[this.Transactions[i].Item.name] = {
                         quantity: 0,

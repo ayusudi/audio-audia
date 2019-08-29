@@ -10,32 +10,7 @@
 </head>
 
 <body>
-
-
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Toko Audio Audia</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/help">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-
-
-
-
+    <%-include('./partials/navbarHome.ejs')%>
     <div>
         <form class="form" style="padding-left: 85px; padding-top: 40px; position: absolute" action="/users/register" method="post">
             <fieldset>
@@ -95,22 +70,10 @@
                 </div>
 
 
-                <!-- <div class="control-group"> -->
-                <!-- req.body.role -->
-                <!-- <label class="control-label" for="role">Role</label>
-                    <div class="controls">
-                        <input list="role" name="role" style="width:300px">
-                        <datalist id="role">
-                            <option value="Customer">
-                            <option value="Admin">
-                        </datalist>
-                    </div>
-                </div> -->
-
                 <div class="control-group">
                     <!-- Button -->
                     <div class="controls" style="padding-top: 20px ">
-                        <button class="btn btn-success">Register</button>
+                        <button class="btn btn-info">Register</button>
                     </div>
                 </div>
             </fieldset>
