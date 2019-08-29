@@ -22,11 +22,14 @@ app.get('/', isNotLogin, (req, res) => [
     res.render('index.ejs')
 ])
 
+app.get('/bestseller', (req, res) => [
+    res.render('bestSeller.ejs')
+])
+
+
 
 app.use('/users', users)
 app.use('/login', login)
-
-
 
 app.listen(PORT, function() {
     console.log(`heard on ${PORT}`)
