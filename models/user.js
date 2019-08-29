@@ -1,6 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const Op = sequelize.Sequelize.Op
+    let nodemailer = require('nodemailer');
+
     class User extends sequelize.Sequelize.Model {
         static associate(models) {
             User.hasMany(models.Transaction)
@@ -8,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         getInvoice() {
             if (this.Transactions) {
                 let invoice = {}
-                let tes = this.Transactions.length
+                // let tes = this.Transactions.length
                 for (let i = 0; i < this.Transactions.length; i++) {
                     invoice[this.Transactions[i].Item.name] = {
                         quantity: 0,
@@ -30,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     }
+
     User.init({
         name: DataTypes.STRING,
         phone: {
@@ -47,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 isEmail: {
                     args: true,
-                    msg: 'EROR EMAIL TELAH DIGUNAKAN'
+                    msg: 'FORMAT ERROR'
                 }
             }
         },
@@ -69,6 +72,32 @@ module.exports = (sequelize, DataTypes) => {
             })
             .then(data => {
                 if (data) throw 'Email sudah ada'
+            })
+    })
+
+    User.addHook('beforeCreate', 'checkUniqueEmail', (input, option) => {
+        return User.findOne({
+                where: {
+                    email: input.email
+                }
+            })
+            .then(isFound => {
+                if (isFound) {
+                    throw new Error('This Email is already registed')
+                }
+            })
+    })
+
+    User.addHook('beforeCreate', 'checkUniqueUserName', (input, option) => {
+        return User.findOne({
+                where: {
+                    username: input.username
+                }
+            })
+            .then(isFound => {
+                if (isFound) {
+                    throw new Error('This UserName is Already Registered')
+                }
             })
     })
 

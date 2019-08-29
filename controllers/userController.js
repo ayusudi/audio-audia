@@ -18,9 +18,9 @@ class UserController {
         // res.send(req.body)
         User.create(obj)
             .then(data => {
-                console.log(obj, '<<<<<<<<< MASUK SINI BROH')
-                res.redirect('/')
-                    // res.send(req.body)
+                // console.log(obj, '<<<<<<<<< MASUK SINI BROH')
+                // res.redirect('/')
+                // res.send(req.body)
             })
             .catch(err => {
                 console.log(err)
@@ -40,10 +40,15 @@ class UserController {
     }
 
     static findByPk(req, res) {
+        // console.log(req.params)
         User.findByPk(req.params.id)
             .then(data => {
+                // res.send(data)
                 let file = data.dataValues
-                res.render('edit-customer.ejs', file)
+                console.log(file, '<<<<<<<<< INI MASUK FBP')
+                res.render('edit-customer.ejs', {
+                    file
+                })
 
             })
             .catch(err => {
@@ -53,13 +58,20 @@ class UserController {
 
     static update(req, res) {
         console.log('masuk kesini broh')
-        res.send(req.params)
-        User.update()
+
+        // res.send(req.body)
+        User.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            })
             .then(data => {
-                // res.send(data)
+                res.redirect('/users/admin/edit-customer')
+                console.log(`Selamat Edit Data ${req.body.name} telah berhasil`)
             })
             .catch(err => {
-
+                res.send(err)
+                console.log(`Selamat Edit Data ${req.body.name} telah berhasil`)
             })
 
     }
@@ -137,6 +149,7 @@ class UserController {
                     if (user.role === 'admin') {
                         res.redirect('/users/admin/edit-customer')
                     } else {
+                        console.log('>>>>>', user);
                         res.redirect(`/users/${user.id}/dashboard`)
                     }
                 } else {
