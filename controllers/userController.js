@@ -39,17 +39,27 @@ class UserController {
             })
     }
 
-    static update(req, res) {
-        User.findByPk({
-                where: {
-                    id: req.params.id
-                }
-            })
+    static findByPk(req, res) {
+        User.findByPk(req.params.id)
             .then(data => {
-                console.log(data)
+                let file = data.dataValues
+                res.render('edit-customer.ejs', file)
+
             })
             .catch(err => {
-                console.log(err)
+                res.send(err)
+            })
+    }
+
+    static update(req, res) {
+        console.log('masuk kesini broh')
+        res.send(req.params)
+        User.update()
+            .then(data => {
+                // res.send(data)
+            })
+            .catch(err => {
+
             })
 
     }
@@ -109,27 +119,32 @@ class UserController {
             })
     }
 
-    static cekLogin(req,res) {
-        req.session.currentUser = req.body
-        User.findOne({where: {username: req.session.currentUser.username}})
-        .then(user => {
-            if(req.body.password == user.password){
-            // if(bcrypt.compareSync(req.body.password, user[0].password)) {
-                if(user.role === 'admin') {
-                    req.session.currentUser.role = "admin"
-                    res.redirect('/users/admin/edit-customer')
-                } else {
-                    req.session.currentUser.customerId = user.id
-                    req.session.currentUser.role = "customer"
-                    res.redirect(`/users/${user.id}/dashboard`)
+    static cekLogin(req, res) {
+        User.findOne({
+                where: {
+                    username: req.body.username
                 }
-            } else {
-                res.redirect('/login')
-            }
-        })
-        .catch(err => {
-            res.send(err)
-        })
+            })
+            .then(user => {
+                if (req.body.password == user.password) {
+                    // if(bcrypt.compareSync(req.body.password, user[0].password)) {
+                    req.session.currentUser = {
+                        id: user.id,
+                        username: user.username,
+                        role: user.role
+                    }
+                    if (user.role === 'admin') {
+                        res.redirect('/users/admin/edit-customer')
+                    } else {
+                        res.redirect(`/users/${user.id}/dashboard`)
+                    }
+                } else {
+                    res.redirect('/login')
+                }
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 
 
