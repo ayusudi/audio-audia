@@ -119,6 +119,34 @@ class UserController {
             })
     }
 
+    static cekLogin(req, res) {
+        User.findOne({
+                where: {
+                    username: req.body.username
+                }
+            })
+            .then(user => {
+                if (req.body.password == user.password) {
+                    // if(bcrypt.compareSync(req.body.password, user[0].password)) {
+                    req.session.currentUser = {
+                        id: user.id,
+                        username: user.username,
+                        role: user.role
+                    }
+                    if (user.role === 'admin') {
+                        res.redirect('/users/admin/edit-customer')
+                    } else {
+                        res.redirect(`/users/${user.id}/dashboard`)
+                    }
+                } else {
+                    res.redirect('/login')
+                }
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
 
 
 }
