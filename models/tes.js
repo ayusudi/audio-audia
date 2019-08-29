@@ -5,6 +5,30 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             User.hasMany(models.Transaction)
         }
+        getInvoice() {
+            if (this.Transactions) {
+                let invoice = {}
+                let tes = this.Transactions.length
+                for (let i = 0; i < this.Transactions.length; i++) {
+                    invoice[this.Transactions[i].Item.name] = {
+                        quantity: 0,
+                        pricePeritem: this.Transactions[i].Item.price,
+                        TotalPrice: 0
+                    }
+                }
+                for (let k in invoice) {
+                    for (let i = 0; i < this.Transactions.length; i++) {
+                        if (k === this.Transactions[i].Item.name) {
+                            invoice[k].quantity += this.Transactions[i].TotalItems
+                            invoice[k].TotalPrice += this.Transactions[i].TotalPayment
+                        }
+                    }
+                }
+                return invoice
+            } else {
+                return false
+            }
+        }
     }
     User.init({
         name: DataTypes.STRING,
@@ -23,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 isEmail: {
                     args: true,
-                    msg: 'EROR EMAIL TELAH DIGUNAKAN'
+                    msg: 'Wrong input form'
                 }
             }
         },
@@ -41,11 +65,13 @@ module.exports = (sequelize, DataTypes) => {
                     email: {
                         [Op.eq]: user.email
                     }
+
                 }
             })
             .then(data => {
                 if (data) throw 'Email sudah ada'
             })
+
     })
 
     return User;

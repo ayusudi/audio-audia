@@ -39,17 +39,27 @@ class UserController {
             })
     }
 
-    static update(req, res) {
-        User.findByPk({
-                where: {
-                    id: req.params.id
-                }
-            })
+    static findByPk(req, res) {
+        User.findByPk(req.params.id)
             .then(data => {
-                console.log(data)
+                let file = data.dataValues
+                res.render('edit-customer.ejs', file)
+
             })
             .catch(err => {
-                console.log(err)
+                res.send(err)
+            })
+    }
+
+    static update(req, res) {
+        console.log('masuk kesini broh')
+        res.send(req.params)
+        User.update()
+            .then(data => {
+                // res.send(data)
+            })
+            .catch(err => {
+
             })
 
     }

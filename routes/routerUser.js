@@ -15,11 +15,20 @@ router.get('/register', (req, res) => {
 router.post('/register', UserController.Create)
 
 router.get('/admin/edit-customer', UserController.findAllCustomer)
+
+router.get('/admin/edit-customer/:id')
+
+
 router.get('/:idUser/dashboard', ItemController.findAll)
 
 
 // BUAT DELETE
 router.get('/admin/edit-customer/delete/:id', UserController.delete)
+
+// UNTUK EDIT CUSTOMER
+router.get('/admin/edit-customer/:id', UserController.findByPk)
+router.post('/admin/edit-customer/:id', UserController.update)
+
 
 
 

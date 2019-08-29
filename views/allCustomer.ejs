@@ -13,15 +13,6 @@
 
 
 
-
-
-
-    <!-- <%for(let key in data){%>
-
-
-        <%}%> -->
-
-
 </head>
 
 <body>
@@ -29,52 +20,87 @@
     <div class="text-center">
 
         <h1>EDIT CUSTOMER</h1>
+        <a href="/">Back to Home</a>
         <br>
         <br>
 
+        <div class="text-center">
+            <center>
+                <table class="table text-center" style="width: 800px">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">id</th>
+
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">ACTION</th>
 
 
 
-        <td>Name</td>
-        <td>Phone</td>
-        <td>Address</td>
-        <td>Email</td>
-        <td>User Name</td>
-        <td>Password</td>
-        <br>
-        <br>
-        <%for(let key in data){%>
-            </td>
-            <td>
-                <%=data[key].name %>
-            </td>
-            <td>
-                <%=data[key].phone %>
-            </td>
-            <td>
-                <%=data[key].address%>
-            </td>
-            <td>
-                <%=data[key].email%>
-            </td>
-            <td>
-                <%=data[key].username%>
-            </td>
-            <td>
-                <%=data[key].password%>
-            </td>
+                        </tr>
+                    </thead>
 
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-success"><a
-                    href="/users/admin/edit-customer/<%=data[key].id%>">Edit</a> </button>
-                <button type="button" class="btn btn-outline-danger"><a
-                    href="/users/admin/edit-customer/delete/<%=data[key].id%>">Delete</a> </button>
+                    <tbody>
+                        <%for(let key in data){%>
+                            </td>
 
-            </div>
-            <br>
-            <br>
+                            <tr>
+                                <td>
+                                    <%=data[key].id %>
+                                </td>
 
-            <%}%>
+                                <td>
+                                    <%=data[key].name %>
+                                </td>
+                                <td>
+                                    <%=data[key].phone %>
+                                </td>
+                                <td>
+                                    <%=data[key].address%>
+                                </td>
+                                <td>
+                                    <%=data[key].email%>
+                                </td>
+                                <td>
+                                    <%=data[key].username%>
+                                </td>
+                                <td>
+                                    <%=data[key].role%>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-outline-success"><a
+                                            href="/users/admin/edit-customer/<%=data[key].id%>">Edit</a> </button>
+                                        <button type="button" class="btn btn-outline-danger"><a
+                                            href="/users/admin/edit-customer/delete/<%=data[key].id%>">Delete</a>
+                                    </button>
+
+                                    </div>
+
+
+                                </td>
+
+
+                            </tr>
+                    </tbody>
+
+
+
+                    <%}%>
+
+                </table>
+
+            </center>
+
+
+        </div>
+
+
+
 
 
 
