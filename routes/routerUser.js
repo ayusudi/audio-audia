@@ -16,9 +16,6 @@ router.post('/register', UserController.Create)
 
 router.get('/admin/edit-customer', UserController.findAllCustomer)
 
-router.get('/admin/edit-customer/:id')
-
-
 router.get('/:idUser/dashboard', ItemController.findAll)
 
 
