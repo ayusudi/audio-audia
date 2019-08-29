@@ -39,6 +39,9 @@ class ItemController {
       res.render('show-item', {item :  item, user : {id : req.params.idUser}, rupiah : convertMoney})
     })
   }
+  static postFilterName(req, res){
+    res.redirect(`/users/${req.params.idUser}/dashboard/findName/${req.body.search}`)
+  }
 }
 
 module.exports = ItemController

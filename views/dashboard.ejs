@@ -8,32 +8,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        /* Remove the navbar's default rounded borders and increase the bottom margin */
-        
-        .navbar {
-            margin-bottom: 50px;
-            border-radius: 0;
-        }
-        /* Remove the jumbotron's default bottom margin */
-        
+<%-include('./partials/styleNavbar.ejs')%>
+<style>
         .jumbotron {
             margin-bottom: 0;
         }
-        /* Add a gray background color and some padding to the footer */
-        
-        footer {
-            background-color: #f2f2f2;
-            padding: 25px;
-        }
     </style>
 </head>
-
 <body>
-    </div>
+        <%-include('./partials/navbarCustomer.ejs')%>
+
+        <br>
+        <center>
+
+            <form class="form" action="/users/<%=user%>/dashboard/filter" method="post">
+                <div class="form-group" style="width: 500px">
+                    <label for="exampleInputEmail1" style="color: rgb(40, 41, 141)">Search by name : </label>
+                    <input type="text" class="form-control" id="name"  name = "search" placeholder="name..">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </center>
+        <br>
+            <center>
+                <div>
+                    <div >
+                        <a class="btn btn-info btn-lg" href="/users/<%=user%>/dashboard/filterItem/bluetooth/true" role='button'>Include Bluetooth</a>
+                        <a class="btn btn-info btn-lg" href="/users/<%=user%>/dashboard/filterItem/bluetooth/false" role='button'>No Bluetooth</a>
+                    </div>
+                </div>
+                </div>
+            </center>
+        <br>
+        <br>
+
     <div class="container">
         <% items.forEach(data =>{%>
-            <!-- <div class="row"> -->
             <div class="col-sm-4">
                 <div class="panel panel-primary" style="border-color: rgb(43, 111, 138)">
                     <div class="panel-heading" style="background-color: rgb(6, 109, 128)">
@@ -43,7 +53,7 @@
                     </div>
                     <div class="panel-footer">
                         <%= data.price %>
-                    </div> <a href="/users/items/<%= data.id %>">Show more</a>
+                    </div> <a href="/users/<%=user%>/items/<%= data.id %>">Show more</a>
                 </div>
             </div>
             <%})%>

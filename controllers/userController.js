@@ -114,7 +114,8 @@ class UserController {
                 res.render('invoice', {
                     UserInvoice: invoiceFormat,
                     customer: data.dataValues,
-                    rupiah: convertMoney
+                    rupiah: convertMoney,
+                    user : req.params.idUser
                 })
             })
     }

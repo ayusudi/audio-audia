@@ -24,7 +24,6 @@ router.get('/admin/edit-customer', isAdmin, UserController.findAllCustomer)
 router.post('/register', isNotLogin, UserController.Create)
 router.get('/admin/edit-customer', isAdmin, UserController.findAllCustomer)
 
-router.get('/:idUser/dashboard', isCustomer,ItemController.findAll)
 
 
 // BUAT DELETE
@@ -34,8 +33,12 @@ router.get('/admin/edit-customer/delete/:id', isAdmin, UserController.delete)
 router.get('/admin/edit-customer/:id', isAdmin, UserController.findByPk)
 router.post('/admin/edit-customer/:id',isAdmin, UserController.update)
 
+router.get('/:idUser/dashboard', isCustomer,ItemController.findAll)
+
+router.post('/:idUser/dashboard', isCustomer, ItemController.postFilterName)
 router.get('/:idUser/dashboard/filterItem/:field/:value', isCustomer,ItemController.findByFilter)
-router.get('/:idUser/dashboard/findName/:name', isCustomer,ItemController.filterByName)
+// router.get('/:idUser/dashboard/search', isCustomer,ItemController.filterByName)
+router.post('/:idUser/dashboard/filter', isCustomer,ItemController.postFilterName)
 router.get('/:idUser/dashboard/findName/:name', isCustomer,ItemController.filterByName)
 router.post('/:idUser/items/:idItem', isCustomer,TransactionController.create)
 router.get('/:idUser/items/:idItem', isCustomer,ItemController.findOne)
