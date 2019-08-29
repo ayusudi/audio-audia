@@ -5,58 +5,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
-
-    <!-- <script src=""></script> -->
-    <title>Best Seller Audio</title>
+    <title>Best Seller Audio Audia</title>
 </head>
 
 <body>
+        <%-include('./partials/navbarHome.ejs')%>
+        <br>
+        <center>
 
-    <h1>test</h1>
-    <div class="container">
-        <canvas id="myChart" width="400" height="400">
+            <h1>Item Charts Audio Audia</h1>
+        </center>
+        <br>
+    <div class="container" style="width: 600px;">
+        <canvas id="myChart" width="200" height="200">
 
         </canvas>
 
-
+        <p id="data" style="display:none"><%= mvp.values %></p>
+        <p id="label" style="display:none"><%= mvp.label %></p>
 
     </div>
-    <script>
-        var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['harman kardon', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: 'Best Seller Item',
-                    data: [10, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            }
-        });
-    </script>
-
 </body>
+<script>
+    var ctx = document.getElementById('myChart');
+    var dataHeadset = (document.getElementById("data").innerText).split(',');
+    var labelHeadset = (document.getElementById("label").innerText).split(',')
+    var myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: labelHeadset,
+            datasets: [{
+                label: 'AUDIO AUDIA',
+                data: dataHeadset,
+                backgroundColor: [
+                    'rgb(255, 0 , 0)',
+                    'rgb(255, 127, 0)',
+                    'rgb(0, 255, 0)',
+                    'rgb(0, 0, 255)',
+                    'rgb(75, 0, 130)',
+                    'rgb(148, 0, 211)',
+                    'rgba(255, 255, 32, 1)',
+                    'rgb(118, 14, 244)',
+                    'rgba(181, 36, 149, 1)',
+                    'rgb(52, 235, 255)',
+                    'rgba(255, 0, 0, 0.8)',
+                    'rgba(5, 174, 230, 1)',
+                    'rgba(57, 5, 230, 1)',
+                    'rgb(0, 213, 27)',
+                    'rgb(255, 255, 0)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
 
 </html>

@@ -7,6 +7,7 @@ router.get('/', isNotLogin, (req, res) => {
     console.log(req.session);
     res.render('login')
 })
+
 router.post('/', isNotLogin, UserController.cekLogin)
 
 router.get('/logout', (req, res) => {

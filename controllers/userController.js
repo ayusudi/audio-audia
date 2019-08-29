@@ -15,22 +15,13 @@ class UserController {
             username: req.body.username,
             password: req.body.password,
         }
-
-        // res.send(req.body)
         User.create(obj)
             .then(data => {
-                // console.log(obj, '<<<<<<<<< MASUK SINI BROH')
                 res.redirect('/')
-// <<<<<<< crud_user
-//                     // res.send(req.body)
-// =======
-                // res.send(req.body)
-// >>>>>>> master
             })
             .catch(err => {
+                res.redirect(`/users/register?status=${err}`)
                 console.log(err)
-                    // res.redirect('register/?error=')
-                    // res.send(req.body)
             })
     }
 
@@ -45,10 +36,8 @@ class UserController {
     }
 
     static findByPk(req, res) {
-        // console.log(req.params)
         User.findByPk(req.params.id)
             .then(data => {
-                // res.send(data)
                 let file = data.dataValues
                 console.log(file, '<<<<<<<<< INI MASUK FBP')
                 res.render('edit-customer.ejs', {
@@ -62,13 +51,11 @@ class UserController {
 
     static update(req, res) {
         console.log('masuk kesini broh')
-
-        // res.send(req.body)
         User.update(req.body, {
-                where: {
-                    id: req.params.id
-                }
-            })
+            where: {
+                id: req.params.id
+            }
+        })
             .then(data => {
                 res.redirect('/users/admin/edit-customer')
                 console.log(`Selamat Edit Data ${req.body.name} telah berhasil`)
@@ -80,15 +67,13 @@ class UserController {
 
     }
 
-
     static delete(req, res) {
         User.destroy({
-                where: {
-                    id: req.params.id
-                }
-            })
+            where: {
+                id: req.params.id
+            }
+        })
             .then(data => {
-
                 console.log('berhasil')
                 res.redirect('/users/admin/edit-customer')
             })
@@ -101,10 +86,9 @@ class UserController {
     static findAllCustomer(req, res) {
         // console.log('masuk bro')
         User.findAll({
-            order : [['id', 'ASC']]
+            order: [['id', 'ASC']]
         })
             .then(data => {
-                // res.send(data)
                 res.render('allCustomer.ejs', {
                     data
                 })
@@ -116,13 +100,13 @@ class UserController {
 
     static findUserTRX(req, res) {
         User.findByPk(req.params.idUser, {
+            include: [{
+                model: Model.Transaction,
                 include: [{
-                    model: Model.Transaction,
-                    include: [{
-                        model: Model.Item
-                    }]
+                    model: Model.Item
                 }]
-            })
+            }]
+        })
             .then(data => {
                 let invoice = data.getInvoice()
                 let invoiceFormat = {
@@ -140,10 +124,10 @@ class UserController {
 
     static cekLogin(req, res) {
         User.findOne({
-                where: {
-                    username: req.body.username
-                }
-            })
+            where: {
+                username: req.body.username
+            }
+        })
             .then(user => {
                 // if (req.body.password == user.password) {
                 if (bcrypt.compareSync(req.body.password, user.password)) {
@@ -166,9 +150,6 @@ class UserController {
                 res.send(err)
             })
     }
-
-
-
 }
 
 module.exports = UserController

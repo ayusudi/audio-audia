@@ -10,12 +10,10 @@ class TransactionController {
             })
             .then(data => {
                 console.log('success called')
-                res.redirect(`/users/${req.params.idUser}/dashboard`)
+                res.render('dashboard',`/users/${req.params.idUser}/dashboard`)
             })
             .catch(err => {
-                res.send(err.Error)
-                console.log('im called')
-                console.log(err);
+                res.redirect(`/users/${req.params.idUser}/items/${req.params.idItem}?status=${err}`)
             })
     }
 
