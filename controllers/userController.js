@@ -21,7 +21,11 @@ class UserController {
             .then(data => {
                 // console.log(obj, '<<<<<<<<< MASUK SINI BROH')
                 res.redirect('/')
-                    // res.send(req.body)
+// <<<<<<< crud_user
+//                     // res.send(req.body)
+// =======
+                // res.send(req.body)
+// >>>>>>> master
             })
             .catch(err => {
                 console.log(err)
@@ -96,7 +100,9 @@ class UserController {
 
     static findAllCustomer(req, res) {
         // console.log('masuk bro')
-        User.findAll()
+        User.findAll({
+            order : [['id', 'ASC']]
+        })
             .then(data => {
                 // res.send(data)
                 res.render('allCustomer.ejs', {
