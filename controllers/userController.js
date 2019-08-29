@@ -1,7 +1,8 @@
 const Model = require('../models/index')
 const User = Model.User
-const sumInvoice = require('../helper/sumInvoice')
-const convertMoney = require('../helper/rupiah')
+const sumInvoice = require('../helpers/sumInvoice')
+const convertMoney = require('../helpers/rupiah')
+const bcrypt = require('bcrypt')
 
 class UserController {
 
@@ -139,8 +140,8 @@ class UserController {
                 }
             })
             .then(user => {
-                if (req.body.password == user.password) {
-                    // if(bcrypt.compareSync(req.body.password, user[0].password)) {
+                // if (req.body.password == user.password) {
+                    if(bcrypt.compareSync(req.body.password, user.password)) {
                     req.session.currentUser = {
                         id: user.id,
                         username: user.username,

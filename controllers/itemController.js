@@ -1,6 +1,6 @@
 const Model = require('../models/index')
 const Item = Model.Item
-const convertMoney = require('../helper/rupiah')
+const convertMoney = require('../helpers/rupiah')
 
 class ItemController {
   static findAll(req, res) {

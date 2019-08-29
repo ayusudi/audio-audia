@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Op = sequelize.Sequelize.Op
     let nodemailer = require('nodemailer');
+    const hash = require('../helpers/passwordHash')
 
     class User extends sequelize.Sequelize.Model {
         static associate(models) {
@@ -10,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
         getInvoice() {
             if (this.Transactions) {
                 let invoice = {}
-                // let tes = this.Transactions.length
                 for (let i = 0; i < this.Transactions.length; i++) {
                     invoice[this.Transactions[i].Item.name] = {
                         quantity: 0,
@@ -58,29 +58,33 @@ module.exports = (sequelize, DataTypes) => {
         role: DataTypes.STRING,
         username: DataTypes.STRING
     }, {
-        sequelize
+            sequelize
+        })
+
+    User.addHook('beforeCreate', (user) => {
+        user.password = hash(user.password)
     })
 
     User.addHook('beforeCreate', (user) => {
         user.role = 'customer'
         return User.findOne({
-                where: {
-                    email: {
-                        [Op.eq]: user.email
-                    }
+            where: {
+                email: {
+                    [Op.eq]: user.email
                 }
-            })
+            }
+        })
             .then(data => {
-                if (data) throw 'Email sudah ada'
+                if (data) throw new Error('Username sudah ada')
             })
     })
 
     User.addHook('beforeCreate', 'checkUniqueEmail', (input, option) => {
         return User.findOne({
-                where: {
-                    email: input.email
-                }
-            })
+            where: {
+                email: input.email
+            }
+        })
             .then(isFound => {
                 if (isFound) {
                     throw new Error('This Email is already registed')
@@ -90,10 +94,10 @@ module.exports = (sequelize, DataTypes) => {
 
     User.addHook('beforeCreate', 'checkUniqueUserName', (input, option) => {
         return User.findOne({
-                where: {
-                    username: input.username
-                }
-            })
+            where: {
+                username: input.username
+            }
+        })
             .then(isFound => {
                 if (isFound) {
                     throw new Error('This UserName is Already Registered')
