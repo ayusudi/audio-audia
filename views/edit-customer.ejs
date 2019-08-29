@@ -103,13 +103,20 @@
                         </div>
                     </div>
 
-                    <div class=" control-group ">
-                        <!-- req.body.password-->
-                        <label class=" control-label " for=" password ">Password</label>
-                        <div class=" controls ">
-                            <input type="password" id="password" name="password" placeholder=" " class=" input-xlarge " style=" width: 300px " value="<%=file.password%>">
+                    <div class="control-group">
+                            <label class="control-label" for="role">Role</label>
+                            <div class="controls">
+                                <select name="role">
+                                    <% if (file.role === "customer"){%>
+                                        <option value="customer" selected>Customer</option>
+                                        <option value="admin">Admin</option>
+                                    <%} else if (file.role === "admin"){%>
+                                        <option value="customer">Customer</option>
+                                        <option value="admin" selected>Admin</option>
+                                    <%}%>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
                     <div class=" control-group ">
                         <!-- Button -->

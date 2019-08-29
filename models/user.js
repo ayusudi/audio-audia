@@ -75,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
             }
         })
             .then(data => {
-                if (data) throw new Error('Username sudah ada')
+                if (data) throw new Error('Email sudah ada')
             })
     })
 

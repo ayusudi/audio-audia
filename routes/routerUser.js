@@ -19,7 +19,7 @@ router.get('/register', (req, res) => {
 })
 router.post('/register', isNotLogin, UserController.Create)
 router.get('/admin/edit-customer', isAdmin, UserController.findAllCustomer)
-router.post('/register', UserController.update)
+// router.post('/register', UserController.update)
 
 // 
 
