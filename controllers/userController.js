@@ -1,7 +1,8 @@
 const Model = require('../models/index')
 const User = Model.User
-const sumInvoice = require('../helper/sumInvoice')
-const convertMoney = require('../helper/rupiah')
+const sumInvoice = require('../helpers/sumInvoice')
+const convertMoney = require('../helpers/rupiah')
+const bcrypt = require('bcrypt')
 
 class UserController {
 
@@ -19,8 +20,8 @@ class UserController {
         User.create(obj)
             .then(data => {
                 // console.log(obj, '<<<<<<<<< MASUK SINI BROH')
-                // res.redirect('/')
-                // res.send(req.body)
+                res.redirect('/')
+                    // res.send(req.body)
             })
             .catch(err => {
                 console.log(err)
@@ -49,7 +50,6 @@ class UserController {
                 res.render('edit-customer.ejs', {
                     file
                 })
-
             })
             .catch(err => {
                 res.send(err)
@@ -127,7 +127,7 @@ class UserController {
                     UserInvoice: invoiceFormat,
                     customer: data.dataValues,
                     rupiah: convertMoney,
-                    user : req.params.idUser
+                    user: req.params.idUser
                 })
             })
     }
@@ -139,8 +139,8 @@ class UserController {
                 }
             })
             .then(user => {
-                if (req.body.password == user.password) {
-                    // if(bcrypt.compareSync(req.body.password, user[0].password)) {
+                // if (req.body.password == user.password) {
+                if (bcrypt.compareSync(req.body.password, user.password)) {
                     req.session.currentUser = {
                         id: user.id,
                         username: user.username,

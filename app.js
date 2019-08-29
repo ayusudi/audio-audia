@@ -11,6 +11,7 @@ app.use(express.urlencoded({
 const isNotLogin = require('./middlewares/isNotLogin')
 const users = require('./routes/routerUser')
 const login = require('./routes/routerLogin')
+const mvp = require('./routes/routerMVP')
 
 app.use(session({
     secret: 'keyboard cat',
@@ -22,13 +23,14 @@ app.get('/', isNotLogin, (req, res) => [
     res.render('index.ejs')
 ])
 
-app.get('/bestseller', (req, res) => [
-    res.render('bestSeller.ejs')
-])
+// app.get('/bestseller', (req, res) => [
+//     res.render('bestSeller.ejs')
+// ])
 
 
 
 app.use('/users', users)
+app.use('/mvp', mvp)
 app.use('/login', login)
 
 app.listen(PORT, function() {

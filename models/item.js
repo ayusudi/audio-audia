@@ -57,20 +57,22 @@ module.exports = (sequelize, DataTypes) => {
                 })
         }
 
-        findSales() {
-            const Transaction = require('../models/index').Transaction
-            Item.findAll({
-                    include: [{
-                        model: Transaction
-                    }]
-                })
-                .then(data => {
+        // static findSales() {
+        //     const Transaction = require('../models/index').Transaction
+        //     Item.findAll({
+        //             include: [{
+        //                 model: Transaction
+        //             }]
+        //         })
+        //         .then(data => {
 
-                })
-                .catch(err => {
+        //             return data
 
-                })
-        }
+        //         })
+        //         .catch(err => {
+        //             return err
+        //         })
+        // }
 
 
     }

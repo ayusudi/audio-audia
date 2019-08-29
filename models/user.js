@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     const Op = sequelize.Sequelize.Op
     let nodemailer = require('nodemailer');
+    const hash = require('../helpers/passwordHash')
 
     class User extends sequelize.Sequelize.Model {
         static associate(models) {
@@ -62,6 +63,10 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     User.addHook('beforeCreate', (user) => {
+        user.password = hash(user.password)
+    })
+
+    User.addHook('beforeCreate', (user) => {
         user.role = 'customer'
         return User.findOne({
                 where: {
@@ -71,7 +76,7 @@ module.exports = (sequelize, DataTypes) => {
                 }
             })
             .then(data => {
-                if (data) throw Error('Email sudah ada')
+                if (data) throw new Error('Email sudah ada')
             })
     })
 
