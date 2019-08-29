@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         getInvoice() {
             if (this.Transactions) {
                 let invoice = {}
-                // let tes = this.Transactions.length
+                    // let tes = this.Transactions.length
                 for (let i = 0; i < this.Transactions.length; i++) {
                     invoice[this.Transactions[i].Item.name] = {
                         quantity: 0,
@@ -71,7 +71,7 @@ module.exports = (sequelize, DataTypes) => {
                 }
             })
             .then(data => {
-                if (data) throw 'Email sudah ada'
+                if (data) throw Error('Email sudah ada')
             })
     })
 
