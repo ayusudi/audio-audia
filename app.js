@@ -12,6 +12,11 @@ const isNotLogin = require('./middlewares/isNotLogin')
 const users = require('./routes/routerUser')
 const login = require('./routes/routerLogin')
 
+app.use(function (req, res, next) {
+    res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+    next();
+})
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
