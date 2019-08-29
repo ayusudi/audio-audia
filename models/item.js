@@ -1,14 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+    // const Transaction = sequelize.Sequelize.Model.Transaction
     class Item extends sequelize.Sequelize.Model {
         static associate(models) {
             Item.hasMany(models.Transaction)
         }
-        statusBluetooth(){
-            if (this.bluetooth){
+        statusBluetooth() {
+            if (this.bluetooth) {
                 return '✓ Bluetooth'
-            }
-            else {
+            } else {
                 return '☓ Bluetooth'
             }
         }
@@ -56,6 +56,25 @@ module.exports = (sequelize, DataTypes) => {
                     return err
                 })
         }
+
+        // static findSales() {
+        //     const Transaction = require('../models/index').Transaction
+        //     Item.findAll({
+        //             include: [{
+        //                 model: Transaction
+        //             }]
+        //         })
+        //         .then(data => {
+
+        //             return data
+
+        //         })
+        //         .catch(err => {
+        //             return err
+        //         })
+        // }
+
+
     }
     Item.init({
         name: DataTypes.STRING,

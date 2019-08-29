@@ -11,6 +11,7 @@ app.use(express.urlencoded({
 const isNotLogin = require('./middlewares/isNotLogin')
 const users = require('./routes/routerUser')
 const login = require('./routes/routerLogin')
+const mvp = require('./routes/routerMVP')
 
 app.use(function (req, res, next) {
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
@@ -27,13 +28,14 @@ app.get('/', isNotLogin, (req, res) => [
     res.render('index.ejs')
 ])
 
-app.get('/bestseller', (req, res) => [
-    res.render('bestSeller.ejs')
-])
+// app.get('/bestseller', (req, res) => [
+//     res.render('bestSeller.ejs')
+// ])
 
 
 
 app.use('/users', users)
+app.use('/mvp', mvp)
 app.use('/login', login)
 
 app.listen(PORT, function() {
