@@ -22,7 +22,6 @@ router.get('/admin/edit-customer', isAdmin, UserController.findAllCustomer)
 router.post('/register', UserController.update)
 
 // 
-router.get('/admin/edit-customer', isNotLogin, UserController.findAllCustomer)
 
 router.post('/register', isNotLogin, UserController.Create)
 router.get('/admin/edit-customer', isAdmin, UserController.findAllCustomer)
@@ -36,6 +35,7 @@ router.get('/admin/edit-customer/delete/:id', isAdmin, UserController.delete)
 router.get('/admin/edit-customer/:id', isAdmin, UserController.findByPk)
 router.post('/admin/edit-customer/:id', isAdmin, UserController.update)
 
+router.get('/:idUser/dashboard', isCustomer, ItemController.findAll)
 router.get('/:idUser/dashboard/filterItem/:field/:value', isCustomer, ItemController.findByFilter)
 router.get('/:idUser/dashboard/findName/:name', isCustomer, ItemController.filterByName)
 router.get('/:idUser/dashboard/findName/:name', isCustomer, ItemController.filterByName)

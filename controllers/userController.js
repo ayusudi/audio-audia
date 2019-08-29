@@ -45,7 +45,7 @@ class UserController {
             .then(data => {
                 // res.send(data)
                 let file = data.dataValues
-                    // console.log(file, '<<<<<<<<<')
+                console.log(file, '<<<<<<<<< INI MASUK FBP')
                 res.render('edit-customer.ejs', {
                     file
                 })
@@ -57,14 +57,21 @@ class UserController {
     }
 
     static update(req, res) {
-        // console.log('masuk kesini broh')
-        res.send(req.body)
-        User.update()
-            .then(data => {
+        console.log('masuk kesini broh')
 
+        // res.send(req.body)
+        User.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(data => {
+                res.redirect('/users/admin/edit-customer')
+                console.log(`Selamat Edit Data ${req.body.name} telah berhasil`)
             })
             .catch(err => {
-
+                res.send(err)
+                console.log(`Selamat Edit Data ${req.body.name} telah berhasil`)
             })
 
     }
