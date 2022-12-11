@@ -22,7 +22,7 @@
     "bcrypt": "^5.0.0",
     "chart.js": "^2.8.0",
     "ejs": "^2.6.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.16.2",
     "nodemailer": "^6.3.0",
     "pg": "^7.12.1",
